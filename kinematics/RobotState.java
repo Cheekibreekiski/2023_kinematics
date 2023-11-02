@@ -7,10 +7,12 @@ public class RobotState {
     double elevatorX; 
     double elevatorY;
 
-    public RobotState(double elevatorState, double theta1State, double theta2State){
+    public RobotState(double elevatorState, double elevatorX, double elevatorY, double theta1State, double theta2State){
         this.elevatorState = elevatorState; 
         this.theta1State = theta1State;
         this.theta2State = theta2State;
+        this.elevatorX = elevatorX;
+        this.elevatorY = elevatorY;
         }
     
     public double getElevatorState(){

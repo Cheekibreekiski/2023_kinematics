@@ -55,7 +55,8 @@ class inverse extends Robot{
         }
 
         //calc elevator x
-        double x_elevator_adjusted = x_desired - elevator_y/Math.tan(Math.toRadians(theta_e));
+        double elevator_x = elevator_y/Math.tan(Math.toRadians(theta_e));
+        double x_elevator_adjusted = x_desired - elevator_x;
 
         //calc elevator extention
         double e = elevator_y/Math.sin(Math.toRadians(theta_e));
