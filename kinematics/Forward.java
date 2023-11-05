@@ -24,6 +24,11 @@ public class Forward {
         theta_e = Math.toRadians(theta_e);
         double x = l1*Math.cos(theta1) + l2*Math.cos(theta1+theta2) + e*Math.cos(theta_e);
         double y = l1*Math.sin(theta1) + l2*Math.sin(theta1+theta2) + e*Math.sin(theta_e);
+        
+        //round
+        x = x - (x%0.01);
+        y = y - (y%0.01);
+        
         return new Coords(x, y);
     }
 }
