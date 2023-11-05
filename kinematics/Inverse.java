@@ -110,7 +110,7 @@ class Inverse extends KinematicProfile{
             theta1 = Math.atan(y_elevator_adjusted/x_elevator_adjusted) + Math.atan((l2*Math.sin(theta2))/(l1+(l2*Math.cos(theta2))));
         }
         
-        return new RobotState(0, 0, 0, Math.toDegrees(theta1), Math.toDegrees(theta2));
+        return new RobotState(0, 0, 0, 90-Math.toDegrees(theta1), Math.toDegrees(theta2)-180);
 
 
     }

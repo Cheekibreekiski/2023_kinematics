@@ -25,7 +25,7 @@ class Main{
         // System.out.println(calc.toString());
         // System.out.println(fwd.calculate(calc.getTheta1(),calc.getTheta2(), calc.getElevatorState()).toString());
 
-        RobotState calc = inv.arm(1, 1);
+        RobotState calc = inv.arm(0, -2);
         System.out.println(calc.toString());
         System.out.println(fwd.calculate(calc.getTheta1(), calc.getTheta2(), 0));
 
