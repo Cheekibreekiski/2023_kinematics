@@ -57,11 +57,11 @@ class Inverse extends KinematicProfile{
         }
 
         //calc elevator x
-        double elevator_x = elevator_y/Math.tan(Math.toRadians(theta_e));
+        double elevator_x = elevator_y/Math.tan((theta_e));
         double x_elevator_adjusted = x_desired - elevator_x;
 
         //calc elevator extention
-        double e = elevator_y/Math.sin(Math.toRadians(theta_e));
+        double e = elevator_y/Math.sin(theta_e);
 
         //calc h, used in later calculations
         //double h = Math.sqrt((x_elevator_adjusted*x_elevator_adjusted+(y_elevator_adjusted*y_elevator_adjusted)));
@@ -83,5 +83,35 @@ class Inverse extends KinematicProfile{
         
         return new RobotState(e, elevator_x, elevator_y, Math.toDegrees(theta1), Math.toDegrees(theta2));
         
+    }
+
+    public RobotState arm(double x_d, double y_d){
+        double x_desired = x_d;
+        double y_desired = y_d;
+        
+        double x_elevator_adjusted = x_desired;
+        double y_elevator_adjusted = y_desired;
+        
+        //calc h, used in later calculations
+        //double h = Math.sqrt((x_elevator_adjusted*x_elevator_adjusted+(y_elevator_adjusted*y_elevator_adjusted)));
+        double h2 = (x_elevator_adjusted*x_elevator_adjusted)+(y_elevator_adjusted*y_elevator_adjusted);
+    
+        
+        
+        //calc theta 2
+        double theta2 = Math.acos(((h2)-(l1*l1)-(l2*l2))/(-2*l1*l2));
+
+
+        double theta1 = 0;
+        //calc theta 1
+        if(theta2 > 0){
+            theta1 = Math.atan(y_elevator_adjusted/x_elevator_adjusted) - Math.atan((l2*Math.sin(theta2))/(l1+(l2*Math.cos(theta2))));
+        }else{
+            theta1 = Math.atan(y_elevator_adjusted/x_elevator_adjusted) + Math.atan((l2*Math.sin(theta2))/(l1+(l2*Math.cos(theta2))));
+        }
+        
+        return new RobotState(0, 0, 0, Math.toDegrees(theta1), Math.toDegrees(theta2));
+
+
     }
 }

@@ -21,7 +21,7 @@ class KinematicProfile{
         this.l1 = l1;
         this.l2 = l2;
         this.e_max = e_max;
-        this.theta_e = theta_e; 
+        this.theta_e = Math.toRadians(theta_e); 
     }
     
 
