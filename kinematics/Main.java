@@ -2,13 +2,15 @@ package kinematics;
 
 import java.util.function.DoubleSupplier;
 
-import kinematics.Robot.coords;
 
 class Main{
     
 
     public static void main(String[] args){
-        DoubleSupplier x_d = (() -> 3);
+        
+        
+        
+        DoubleSupplier x_d = (() -> 4.5);
         DoubleSupplier y_d = (() -> 2);
         double l1 = 2.0;
         double l2 = 1.0;
@@ -16,9 +18,11 @@ class Main{
         double e_max = 5.0;
         
         
-        inverse inv = new inverse(x_d, y_d, l1, l2, theta_e, e_max);
+        Inverse inv = new Inverse(x_d, y_d, l1, l2, theta_e, e_max);
+        Forward fwd = new Forward(l1, l2, theta_e);
 
-        System.out.println(inv.calculate().toString());
-        
+        RobotState calc = inv.calculate();
+        System.out.println(calc.toString());
+        System.out.println(fwd.calculate(calc.getTheta1(),calc.getTheta2(), calc.getElevatorState()).toString());
     }
 }

@@ -18,10 +18,10 @@ public class RobotState {
     public double getElevatorState(){
         return elevatorState;
     }
-    public double getTheta1State(){
+    public double getTheta1(){
         return theta1State;
     }
-    public double getTheta2State(){
+    public double getTheta2(){
         return theta2State;
     }
     public void setElevatorState(double elevatorState){
