@@ -16,18 +16,28 @@ class Main{
         double l2 = 1.0;
         double theta_e = 45.0;
         double e_max = 5.0;
+        KinematicProfile kp = new KinematicProfile(l1, l2, theta_e, e_max);
         
+        //TODO: goes beyond max elevator state
+        //TODO: possibly rederive foward kinematics
+        Inverse inv = new Inverse(x_d, y_d, kp);
+        Forward fwd = new Forward(kp);
+
+        RobotState calc = inv.calculate(6, 6);
         
-        Inverse inv = new Inverse(x_d, y_d, l1, l2, theta_e, e_max);
-        Forward fwd = new Forward(l1, l2, theta_e);
-
-        // 
-        // System.out.println(calc.toString());
-        // System.out.println(fwd.calculate(calc.getTheta1(),calc.getTheta2(), calc.getElevatorState()).toString());
-
-        RobotState calc = inv.arm(0, -2);
-        System.out.println(calc.toString());
-        System.out.println(fwd.calculate(calc.getTheta1(), calc.getTheta2(), 0));
-
+        if((inv.x_elevator_adjusted*inv.x_elevator_adjusted)+(inv.y_elevator_adjusted*inv.y_elevator_adjusted)<=4){
+            System.out.println();
+            System.out.println("Inverse Kinematics:");
+            System.out.println(calc.toString());
+            System.out.println("Calculated coords");
+            System.out.println(fwd.calculate(calc.getTheta1(), calc.getTheta2(), calc.getElevatorState()));
+            System.out.println("Adjusted coords:");
+            System.out.println("(" + inv.x_elevator_adjusted + "," + inv.y_elevator_adjusted + ")");
+            System.out.println("Actual coords:");
+            System.out.println("(" + inv.x_desired + "," + inv.y_desired + ")");
+            System.out.println();
+        }else{
+            System.out.println("\n Outside of work packet! \n");
+        }
     }
 }

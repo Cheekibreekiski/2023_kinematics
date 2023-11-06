@@ -8,10 +8,10 @@ public class Forward {
     double theta_e;
     
 
-    public Forward(double l1, double l2, double theta_e){
-        this.l1 = l1;
-        this.l2 = l2;
-        this.theta_e = theta_e;
+    public Forward(KinematicProfile kp){
+        this.l1 = kp.l1;
+        this.l2 = kp.l2;
+        this.theta_e = kp.theta_e;
         
     }
 
@@ -28,7 +28,7 @@ public class Forward {
         //round
         x = x - (x%0.01);
         y = y - (y%0.01);
-        
+
         return new Coords(x, y);
     }
 }
