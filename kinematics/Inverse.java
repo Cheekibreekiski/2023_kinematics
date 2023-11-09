@@ -43,13 +43,16 @@ class Inverse {
         y_elevator_adjusted = 0; //desired y minus the elevator position
         double elevator_y = 0; //actual y of the elevator
         
-        //if desired y is greater than max extension, bring the elevator to max
-        if(y_desired > kp.e_max){
-            y_elevator_adjusted = y_desired - kp.e_max;
-            elevator_y = kp.e_max;
+        double elevator_extention = y_desired/Math.sin(kp.theta_e);
+        double max_elevator_y = kp.e_max*Math.sin(kp.theta_e);
+
+        //if desired y is greater than max extension allows, bring the elevator to max
+        if(elevator_extention > kp.e_max){
+            y_elevator_adjusted = y_desired - max_elevator_y;
+            elevator_y = max_elevator_y;
 
         //if desired y is within range of the elevator, bring the elevator to the desired y
-        }else if(y_desired >= 0 && y_desired <= kp.e_max){
+        }else if(elevator_extention >= 0 && elevator_extention <= kp.e_max){
             y_elevator_adjusted = 0;
             elevator_y = y_desired;
 

@@ -20,12 +20,15 @@ class Main{
         
         //TODO: goes beyond max elevator state
         //TODO: possibly rederive foward kinematics
+        
         Inverse inv = new Inverse(x_d, y_d, kp);
         Forward fwd = new Forward(kp);
 
-        RobotState calc = inv.calculate(6, 6);
+        RobotState calc = inv.calculate(2, 1);
         
-        if((inv.x_elevator_adjusted*inv.x_elevator_adjusted)+(inv.y_elevator_adjusted*inv.y_elevator_adjusted)<=4){
+        if(!((inv.x_elevator_adjusted*inv.x_elevator_adjusted)+(inv.y_elevator_adjusted*inv.y_elevator_adjusted)<=4)){
+           System.out.println("\n //////////////////////////// Outside of work packet! ///////////////////////////// \n");
+        }
             System.out.println();
             System.out.println("Inverse Kinematics:");
             System.out.println(calc.toString());
@@ -36,8 +39,8 @@ class Main{
             System.out.println("Actual coords:");
             System.out.println("(" + inv.x_desired + "," + inv.y_desired + ")");
             System.out.println();
-        }else{
-            System.out.println("\n Outside of work packet! \n");
-        }
+        
+         
+        
     }
 }
