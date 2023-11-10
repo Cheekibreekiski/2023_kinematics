@@ -20,10 +20,9 @@ public class Forward {
      */
     public Coords calculate(double theta1, double theta2, double e){
         theta1 = Math.toRadians(theta1);
-        theta2 = Math.toRadians(theta2);
-        theta_e = Math.toRadians(theta_e);
-        double x = l1*Math.cos(theta1) + l2*Math.cos(theta1+theta2) + e*Math.cos(theta_e);
-        double y = l1*Math.sin(theta1) + l2*Math.sin(theta1+theta2) + e*Math.sin(theta_e);
+        theta2 = Math.toRadians(180 - theta2);
+        double x = l1*Math.cos(theta1) + l2*Math.cos(theta2) + e*Math.cos(theta_e);
+        double y = l1*Math.sin(theta1) + l2*Math.sin(theta2) + e*Math.sin(theta_e);
         
         //round
         x = x - (x%0.01);

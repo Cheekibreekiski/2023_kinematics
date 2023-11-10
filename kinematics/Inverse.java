@@ -66,9 +66,6 @@ class Inverse {
         double elevator_x = elevator_y/Math.tan((kp.theta_e));
         x_elevator_adjusted = x_desired - elevator_x;
 
-        //calc elevator extention
-        double e = elevator_y/Math.sin(kp.theta_e);
-
         //calc h, used in later calculations
         //double h = Math.sqrt((x_elevator_adjusted*x_elevator_adjusted+(y_elevator_adjusted*y_elevator_adjusted)));
         double h2 = (x_elevator_adjusted*x_elevator_adjusted)+(y_elevator_adjusted*y_elevator_adjusted);
@@ -87,39 +84,7 @@ class Inverse {
             theta1 = Math.atan(y_elevator_adjusted/x_elevator_adjusted) + Math.atan((kp.l2*Math.sin(theta2))/(kp.l1+(kp.l2*Math.cos(theta2))));
         }
         
-        return new RobotState(e, elevator_x, elevator_y, Math.toDegrees(theta1)+90, Math.toDegrees(theta2)-180);
+        return new RobotState(elevator_extention, elevator_x, elevator_y, Math.toDegrees(theta1)+90, Math.toDegrees(theta2)-180);
         
     }
-
-    /* 
-    public RobotState arm(double x_d, double y_d){
-        double x_desired = x_d;
-        double y_desired = y_d;
-        
-        double x_elevator_adjusted = x_desired;
-        double y_elevator_adjusted = y_desired;
-        
-        //calc h, used in later calculations
-        //double h = Math.sqrt((x_elevator_adjusted*x_elevator_adjusted+(y_elevator_adjusted*y_elevator_adjusted)));
-        double h2 = (x_elevator_adjusted*x_elevator_adjusted)+(y_elevator_adjusted*y_elevator_adjusted);
-    
-        
-        
-        //calc theta 2
-        double theta2 = Math.acos(((h2)-(kp.l1*kp.l1)-(kp.l2*kp.l2))/(-2*kp.l1*kp.l2));
-
-        //calc theta 1
-        double theta1 = 0;
-        if(theta2 > 0){
-            theta1 = Math.atan(y_elevator_adjusted/x_elevator_adjusted) - Math.atan((kp.l2*Math.sin(theta2))/(kp.l1+(kp.l2*Math.cos(theta2))));
-        }else{
-            theta1 = Math.atan(y_elevator_adjusted/x_elevator_adjusted) + Math.atan((kp.l2*Math.sin(theta2))/(kp.l1+(kp.l2*Math.cos(theta2))));
-        }
-        
-        //im not entirely sure why we offset the values these specific amounts, but this aligns everything to the desired angles
-        return new RobotState(0, 0, 0, 90-Math.toDegrees(theta1), Math.toDegrees(theta2)-180);
-
-
-    }
-    */
 }
