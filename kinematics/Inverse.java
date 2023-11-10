@@ -3,11 +3,7 @@ import java.util.function.DoubleSupplier;
 
 import kinematics.Util.Coords;
 
-//import Robot class
-
-
 class Inverse {
-    Coords desired_coords;
     double h = 0;
     double x_e = 0;
     double y_e = 0;
@@ -21,9 +17,7 @@ class Inverse {
      * @param x_d desired x pos
      * @param y_d desired y pos
      */
-    public Inverse(DoubleSupplier x_d, DoubleSupplier y_d, KinematicProfile kp){
-        
-        desired_coords = new Coords(x_d.getAsDouble(), y_d.getAsDouble());
+    public Inverse(KinematicProfile kp){
         this.kp = kp;
     }
 
@@ -36,7 +30,6 @@ class Inverse {
         x_desired = x_d;
         y_desired = y_d;
         
-
         //calc elevator pos
 
         //calculate elevator y
@@ -46,6 +39,10 @@ class Inverse {
         double elevator_extention = y_desired/Math.sin(kp.theta_e);
         double max_elevator_y = kp.e_max*Math.sin(kp.theta_e);
 
+        
+        
+        //TODO: change elevator behavior
+        
         //if desired y is greater than max extension allows, bring the elevator to max
         if(elevator_extention > kp.e_max){
             y_elevator_adjusted = y_desired - max_elevator_y;

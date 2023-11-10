@@ -25,8 +25,10 @@ public class Forward {
         double y = l1*Math.sin(theta1) + l2*Math.sin(theta2) + e*Math.sin(theta_e);
         
         //round
-        x = x - (x%0.01);
+        x = (x%0.01);
         y = y - (y%0.01);
+
+        
 
         return new Coords(x, y);
     }
