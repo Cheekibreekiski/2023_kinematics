@@ -27,6 +27,7 @@ public final class Constants {
     public static final int compressorID = 1;
     public static final double stickDeadband = 0.05;
     public static final int Jake = 194; //Jake M is 194 cm tall
+    public static final int CANCODER_CPR = 4096;
 
     public static final class PoseEstimation {
         public static ArrayList<Pose2d> scoringPositions = new ArrayList<Pose2d>() {{
@@ -320,6 +321,7 @@ public final class Constants {
         // public static final double topLimit = -236710;
 
         public static int elevatorState = 0;
+        public static final int ELEVATOR_GEAR_RATIO = 0;  //TODO: figure out
     }
     
     public static final class IntakeConstants {

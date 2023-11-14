@@ -149,7 +149,7 @@ public class Elevator extends SubsystemBase {
   //   return (int) Math.ceil(pos/4096);
   // }
 
-  public double getEncoder() {
+  public double getEncoder() { //why does this exist????
     return elevatorMotor.getSelectedSensorPosition();
   }
 

@@ -5,6 +5,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.lib.math.Conversions;
+import frc.robot.Constants;
 import frc.robot.kinematics.Forward;
 import frc.robot.kinematics.Inverse;
 import frc.robot.kinematics.KinematicProfile;
@@ -43,19 +45,30 @@ public class KinematicEngine extends SubsystemBase{
         );
     }
 
+    //degrees
     public double gettheta1(){
-        double x = arm.getAbsEncoderPos(); 
-        x = x/0;
-        return 0;
+        double x = arm.getAbsEncoderPos() - theta1Offset;
+        x = x/Constants.CANCODER_CPR;
+        return x*360;
     }
 
+    //degrees
     public double gettheta2(){
+        double x = arm.getAbsEncoderPos() - theta1Offset;
+        x = x/Constants.CANCODER_CPR;
+        return x*360;
+    }
+
+    //inches?
+    public double getElevatorPos(){
+        double x = elevator.getEncoder();
+        x = Conversions.falconToDegrees(x, Constants.ElevatorConstants.ELEVATOR_GEAR_RATIO);
         return 0;
     }
 
 
     public Coords getCurrentPos(){
-        return fwd.calculate(gettheta1(), gettheta2(), elevator.getEncoder());
+        return fwd.calculate(gettheta1(), gettheta2(), getElevatorPos());
     }
 
     public SuperstructureState getCurrentState(){

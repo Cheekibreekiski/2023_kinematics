@@ -6,7 +6,6 @@ package frc.robot.commands.AutoAlign;
 
 import java.util.List;
 
-import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.Arm;
@@ -16,7 +15,6 @@ import frc.robot.subsystems.PoseEstimator;
 import frc.robot.subsystems.Swerve;
 import frc.robot.subsystems.Wrist;
 import frc.robot.Constants;
-import frc.robot.RobotContainer;
 import frc.robot.commands.DriveToPoseCommand;
 import frc.robot.commands.Presets.Procedures.ScoreAndStow;
 import frc.robot.commands.Presets.Procedures.ScoreHigh;
