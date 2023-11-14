@@ -4,7 +4,6 @@
 
 package frc.robot.commands.Presets.Procedures;
 
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants;
 import frc.robot.commands.Presets.SetArm;

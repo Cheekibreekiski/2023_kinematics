@@ -1,7 +1,4 @@
 package frc.robot.kinematics;
-import java.util.function.DoubleSupplier;
-
-import frc.robot.kinematics.Util.Coords;
 
 public class Inverse {
     double h = 0;

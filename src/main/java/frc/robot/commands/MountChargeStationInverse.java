@@ -24,7 +24,6 @@ public class MountChargeStationInverse extends CommandBase {
   public MountChargeStationInverse(Swerve drivetrain) {
     swerve = drivetrain;
     addRequirements(drivetrain);
-    this.isRed = isRed;
     stage1Threshold = -10;
     //stage2Threshold = 16; - akash says max tilt is 15 degrees
     stage2Threshold = -5;

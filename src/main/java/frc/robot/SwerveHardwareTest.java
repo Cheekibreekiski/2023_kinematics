@@ -25,7 +25,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 public class SwerveHardwareTest extends CommandBase {
   /** Creates a new SwerveHardwareTest. */
 
-  int lbaID = 0; //TODO: can IDs?
+  int lbaID = 0; 
   int lbdID = 0; 
   int rbaID = 0; 
   int rbdID = 0;
