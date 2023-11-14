@@ -1,6 +1,6 @@
-package kinematics;
+package frc.robot.kinematics;
 
-import kinematics.Util.Coords;
+import frc.robot.kinematics.Util.Coords;
 
 public class Forward {
     double l1;

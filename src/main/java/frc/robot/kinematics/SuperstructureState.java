@@ -1,13 +1,13 @@
-package kinematics;
+package frc.robot.kinematics;
 
-public class RobotState {
+public class SuperstructureState {
     double elevatorState;
     double theta1State;
     double theta2State;
     double elevatorX; 
     double elevatorY;
 
-    public RobotState(double elevatorState, double elevatorX, double elevatorY, double theta1State, double theta2State){
+    public SuperstructureState(double elevatorState, double elevatorX, double elevatorY, double theta1State, double theta2State){
         this.elevatorState = elevatorState; 
         this.theta1State = theta1State;
         this.theta2State = theta2State;

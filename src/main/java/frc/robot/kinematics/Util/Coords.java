@@ -1,4 +1,4 @@
-package kinematics.Util;
+package frc.robot.kinematics.Util;
 
 public class Coords{
 

@@ -1,11 +1,10 @@
-package kinematics;
+package frc.robot.kinematics;
 //constants and stuff
 
-import java.util.function.DoubleSupplier;
 
-import kinematics.Util.Coords;
+import frc.robot.kinematics.Util.Coords;
 
-class KinematicProfile{
+public class KinematicProfile{
     double l1; //link lengths
     double l2;
     double theta_e; //elevator angle

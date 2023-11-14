@@ -1,9 +1,9 @@
-package kinematics;
+package frc.robot.kinematics;
 import java.util.function.DoubleSupplier;
 
-import kinematics.Util.Coords;
+import frc.robot.kinematics.Util.Coords;
 
-class Inverse {
+public class Inverse {
     double h = 0;
     double x_e = 0;
     double y_e = 0;
@@ -25,7 +25,7 @@ class Inverse {
 
 
 
-    public RobotState calculate(double x_d, double y_d){        
+    public SuperstructureState calculate(double x_d, double y_d){        
 
         x_desired = x_d;
         y_desired = y_d;
@@ -81,7 +81,7 @@ class Inverse {
             theta1 = Math.atan(y_elevator_adjusted/x_elevator_adjusted) + Math.atan((kp.l2*Math.sin(theta2))/(kp.l1+(kp.l2*Math.cos(theta2))));
         }
         
-        return new RobotState(elevator_extention, elevator_x, elevator_y, Math.toDegrees(theta1)+90, Math.toDegrees(theta2)-180);
+        return new SuperstructureState(elevator_extention, elevator_x, elevator_y, Math.toDegrees(theta1)+90, Math.toDegrees(theta2)-180);
         
     }
 }
