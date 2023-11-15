@@ -1,5 +1,7 @@
 package frc.robot.kinematics;
 
+import frc.robot.kinematics.Util.Coords;
+
 public class Inverse {
     double h = 0;
     double x_e = 0;
@@ -80,5 +82,12 @@ public class Inverse {
         
         return new SuperstructureState(elevator_extention, elevator_x, elevator_y, Math.toDegrees(theta1)+90, Math.toDegrees(theta2)-180);
         
+    }
+    
+    public static Coords getElevatorPos(KinematicProfile kp, double extention){
+        return new Coords(
+            extention*Math.cos(kp.theta_e), 
+            extention*Math.sin(kp.theta_e)
+        );
     }
 }

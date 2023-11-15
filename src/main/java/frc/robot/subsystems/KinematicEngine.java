@@ -22,7 +22,17 @@ public class KinematicEngine extends SubsystemBase{
     Wrist wrist;
     Elevator elevator;
     double theta1Offset = 0;
-    double theta2Offset = 0;
+    double theta2Offset = 0; //TODO: make member of KinematicProfile
+
+
+    /*TODO: test methods in software and on robot
+      
+        SOFTWARE
+        getTheta1: UNTESTED
+        getTheta2: UNTESTED
+        getElevatorState: UNTESTED
+        getElevatorCoords: UNTESTED
+     */
 
     public KinematicEngine(KinematicProfile kp, Arm arm, Wrist wrist, Elevator elevator){
         this.kp = kp;
@@ -59,20 +69,31 @@ public class KinematicEngine extends SubsystemBase{
         return x*360;
     }
 
-    //inches?
-    public double getElevatorPos(){
+    //meters?
+    public double getElevatorState(){
         double x = elevator.getEncoder();
         x = Conversions.falconToDegrees(x, Constants.ElevatorConstants.ELEVATOR_GEAR_RATIO);
         return 0;
     }
 
+    public Coords getElevatorCoords(){
+        return Inverse.getElevatorPos(kp, getElevatorState());
+    }
+
+
 
     public Coords getCurrentPos(){
-        return fwd.calculate(gettheta1(), gettheta2(), getElevatorPos());
+        return fwd.calculate(gettheta1(), gettheta2(), getElevatorState());
     }
 
     public SuperstructureState getCurrentState(){
-        return null;
+        return new SuperstructureState(
+            getElevatorState(),
+            getElevatorCoords().getX(),
+            getElevatorCoords().getY(),
+            gettheta1(),
+            gettheta2()
+        );
     }
     
     
