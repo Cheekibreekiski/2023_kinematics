@@ -22,7 +22,7 @@ public class KinematicEngine extends SubsystemBase{
     Wrist wrist;
     Elevator elevator;
     double theta1Offset = 0;
-    double theta2Offset = 0; //TODO: make member of KinematicProfile
+    double theta2Offset = 0; 
 
 
     /*TODO: test methods in software and on robot
@@ -41,6 +41,8 @@ public class KinematicEngine extends SubsystemBase{
         this.arm = arm;
         this.wrist = wrist;
         this.elevator = elevator;
+        theta1Offset = kp.theta1Offset;
+        theta2Offset = kp.theta2Offset;
     }
 
     public SuperstructureState calcInverse(Coords desiredState){
@@ -57,14 +59,14 @@ public class KinematicEngine extends SubsystemBase{
 
     //degrees
     public double gettheta1(){
-        double x = arm.getAbsEncoderPos() - theta1Offset;
-        x = x/Constants.CANCODER_CPR;
-        return x*360;
+        double x = arm.getAbsEncoderPos() - theta1Offset; //get angle, adjusted to standard pos
+        x = x/Constants.CANCODER_CPR; //convert to scale factor
+        return x*360; //convert to degrees
     }
 
     //degrees
     public double gettheta2(){
-        double x = arm.getAbsEncoderPos() - theta1Offset;
+        double x = wrist.getAbsEncoderPos() - theta2Offset; 
         x = x/Constants.CANCODER_CPR;
         return x*360;
     }
@@ -72,8 +74,8 @@ public class KinematicEngine extends SubsystemBase{
     //meters?
     public double getElevatorState(){
         double x = elevator.getEncoder();
-        x = Conversions.falconToDegrees(x, Constants.ElevatorConstants.ELEVATOR_GEAR_RATIO);
-        return 0;
+        x = x/Constants.ElevatorConstants.topLimit;
+        return x*Constants.ElevatorConstants.ELEVATOR_LENGTH_METERS;
     }
 
     public Coords getElevatorCoords(){

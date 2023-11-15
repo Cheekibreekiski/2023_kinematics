@@ -95,14 +95,15 @@ public class Robot extends TimedRobot {
     // robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    SmartDashboard.putBoolean("Balanced", Math.abs(m_robotContainer.s_Swerve.getPitch()) < 2.5);
-    SmartDashboard.putNumber("pitch", m_robotContainer.s_Swerve.getPitch());
+    //SmartDashboard.putBoolean("Balanced", Math.abs(m_robotContainer.s_Swerve.getPitch()) < 2.5);
+    //SmartDashboard.putNumber("pitch", m_robotContainer.s_Swerve.getPitch());
     // SmartDashboard.putNumber("poseEstimatorX",
     // RobotContainer.swervePoseEstimator.getCurrentPose().getX());
     // SmartDashboard.putNumber("poseEstimatorY",
     // RobotContainer.swervePoseEstimator.getCurrentPose().getY());
     // SmartDashboard.putNumber("poseEstimatorRotation",
     // RobotContainer.swervePoseEstimator.getCurrentPose().getRotation().getDegrees());
+    SmartDashboard.putString("Kinematics", m_robotContainer.kEngine.getCurrentPos().toString());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

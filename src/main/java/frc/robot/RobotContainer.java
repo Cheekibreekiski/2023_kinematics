@@ -58,10 +58,12 @@ import frc.robot.commands.Presets.Procedures.ScoreMid;
 import frc.robot.commands.Presets.Procedures.TopSuck;
 import frc.robot.commands.Presets.Procedures.autoCarry;
 import frc.robot.commands.Presets.Procedures.falcon5;
+import frc.robot.kinematics.KinematicProfile;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.BlinkinLEDs;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.KinematicEngine;
 //import frc.robot.autos.RedHighCone6PickupBalance;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.PoseEstimator;
@@ -80,6 +82,8 @@ import frc.robot.subsystems.Wrist;
 public class RobotContainer {
     // for the xbox controller buttons
     // private Constants.ButtonHashtable bh = new Constants.ButtonHashtable();
+
+    
 
     /* Controllers */
     private final Joystick driver = new Joystick(2);
@@ -102,7 +106,7 @@ public class RobotContainer {
     private final JoystickButton ruffy0 = new JoystickButton(rotate, 1);
     private final JoystickButton ruffy1 = new JoystickButton(strafe, 1);
     // driver button board
-    // TODO: check if these are the right sides
+    // TDO: check if these are the right sides
     private final JoystickButton driverLeft = new JoystickButton(buttonBoards, 2);
     private final JoystickButton driverRight = new JoystickButton(buttonBoards, 1);
 
@@ -148,6 +152,21 @@ public class RobotContainer {
     private final BlinkinLEDs m_LEDs = new BlinkinLEDs();
     // private final PWMLEDs m_LEDs = new PWMLEDs();
 
+    private final KinematicProfile kProfile = new KinematicProfile(
+        0, 
+        0,
+        0,
+        0,
+        0,
+        0
+
+    );
+
+    public final KinematicEngine kEngine = new KinematicEngine(kProfile, m_Arm, m_Wrist, m_Elevator);
+
+
+    
+    
     /* Commands */
     private final Command elevatorControls = new ElevatorControls(m_Elevator, driver, m_Arm);
     private final Command armControls = new ArmControls(m_Arm, driver, m_Elevator);
@@ -236,7 +255,7 @@ public class RobotContainer {
         // PathConstraints(4.5, 3))));
         autoChooser.addOption("RedClean2", RedClean2Path);
         autoChooser.addOption("BlueClean2", BlueClean2Path);
-        autoChooser.addOption("BlueDirty2", BlueTwoPieceDirty); // TODO: rename with no balance
+        autoChooser.addOption("BlueDirty2", BlueTwoPieceDirty); // TDO: rename with no balance
         autoChooser.addOption("RedDirty2", RedTwoPieceDirty);
         // autoChooser.addOption("Clean2Balance",
         // buildAuto(PathPlanner.loadPathGroup("2PieceHighBalanceClean", new
@@ -290,7 +309,7 @@ public class RobotContainer {
         Constants.AutoConstants.eventMap.put("intakeOut", new IntakeOut(m_Intake));// new ParallelRaceGroup(new
                                                                                    // IntakeOut(), new WaitCommand(5)));
         Constants.AutoConstants.eventMap.put("intakeOutFullSpeed", new IntakeOutFullSpeed(m_Intake));
-        Constants.AutoConstants.eventMap.put("driveBack", new DriveBack(s_Swerve)); // TODO: Actually is driving
+        Constants.AutoConstants.eventMap.put("driveBack", new DriveBack(s_Swerve)); // TDO: Actually is driving
                                                                                     // forward, my bad
         Constants.AutoConstants.eventMap.put("spinInPlace", new SpinInPlace(s_Swerve));
         Constants.AutoConstants.eventMap.put("waitHalfSec", new WaitCommand(0.5));

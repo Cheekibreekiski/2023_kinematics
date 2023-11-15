@@ -18,7 +18,7 @@ import frc.lib.util.SwerveModuleConstants;
 import java.util.Hashtable;
 
 public final class Constants {
-    public static final int intakeMotorID = 11; //TODO: assign correct values
+    public static final int intakeMotorID = 11; //TDO: assign correct values
     public static final int wristMotorID = 12;
     public static final int wristCanCoderID = 14;
     public static final int armCanCoderID = 13;
@@ -96,7 +96,7 @@ public final class Constants {
         
         public static final String CANivore = "CANt_open_file";// name of the canivore
 
-        public static final COTSFalconSwerveConstants chosenModule =  //TODO: This must be tuned to specific robot
+        public static final COTSFalconSwerveConstants chosenModule =  //TDO: This must be tuned to specific robot
             COTSFalconSwerveConstants.SDSMK4i(COTSFalconSwerveConstants.driveGearRatios.SDSMK4i_L3);
 
         /* Drivetrain Constants */
@@ -146,7 +146,7 @@ public final class Constants {
         public static final double angleKF = chosenModule.angleKF;
 
         /* Drive Motor PID Values */
-        public static final double driveKP = 0.1; //0.70; //TODO: This must be tuned to specific robot 0.45
+        public static final double driveKP = 0.1; //0.70; //TDO: This must be tuned to specific robot 0.45
         public static final double driveKI = 0.0;
         public static final double driveKD = 0.0;
         public static final double driveKF = 0.0;
@@ -159,9 +159,9 @@ public final class Constants {
 
         /* Swerve Profiling Values */
         /** Meters per Second */
-        public static final double maxSpeed = 4.5; //TODO: This must be tuned to specific robot
+        public static final double maxSpeed = 4.5; //TDO: This must be tuned to specific robot
         /** Radians per Second */
-        public static final double maxAngularVelocity = Math.PI; //TODO: This must be tuned to specific robot
+        public static final double maxAngularVelocity = Math.PI; //TDO: This must be tuned to specific robot
 
         /* Neutral Modes */
         public static final NeutralMode angleNeutralMode = NeutralMode.Coast;
@@ -169,7 +169,7 @@ public final class Constants {
 
         /* Module Specific Constants */
         /* Front Left Module - Module 0 */
-        public static final class Mod0 { //TODO: This must be tuned to specific robot
+        public static final class Mod0 { //TDO: This must be tuned to specific robot
 
             public static final int driveMotorID = 1;
             public static final int angleMotorID = 2;
@@ -181,7 +181,7 @@ public final class Constants {
         }
 
         /* Front Right Module - Module 1 */
-        public static final class Mod1 { //TODO: This must be tuned to specific robot
+        public static final class Mod1 { //TDO: This must be tuned to specific robot
 
             public static final int driveMotorID = 3;
             public static final int angleMotorID = 4;
@@ -193,7 +193,7 @@ public final class Constants {
         }
         
         /* Back Left Module - Module 2 */
-        public static final class Mod2 { //TODO: This must be tuned to specific robot
+        public static final class Mod2 { //TDO: This must be tuned to specific robot
 
             public static final int driveMotorID = 5;
             public static final int angleMotorID = 6;
@@ -205,7 +205,7 @@ public final class Constants {
         }
 
         /* Back Right Module - Module 3 */
-        public static final class Mod3 { //TODO: This must be tuned to specific robot
+        public static final class Mod3 { //TDO: This must be tuned to specific robot
 
             public static final int driveMotorID = 7;
             public static final int angleMotorID = 8;
@@ -216,7 +216,7 @@ public final class Constants {
         }
     }
 
-    public static final class AutoConstants { //TODO: Tune drivekP first with kPX, kPY, and kPTheta as 0. Then tune the others.
+    public static final class AutoConstants { //TDO: Tune drivekP first with kPX, kPY, and kPTheta as 0. Then tune the others.
         public static final double kMaxSpeedMetersPerSecond = 4.5;
         public static final double kMaxAccelerationMetersPerSecondSquared = 3;
         public static final double kMaxAngularSpeedRadiansPerSecond = Math.PI;
@@ -239,10 +239,10 @@ public final class Constants {
     }
     
     public class BalancingConstants{
-        public static final double kP = 0.2275;//TODO: tune // .225
+        public static final double kP = 0.2275;//TDO: tune // .225
         public static final double kI = 0;
         public static final double kD = 0.025;
-        public static final double InversekP = 0.225;//TODO: tune
+        public static final double InversekP = 0.225;//TDO: tune
         public static final double InversekI = 0;
         public static final double InversekD = 0;
         public static final double kToleranceDegrees = 2.5;//acceptable absolute error in degrees
@@ -296,7 +296,7 @@ public final class Constants {
         public static final double chuteArmPos = 30; // pickup from hp chute //was 35
         public static final double shelfArmPos = 17; // 13
         public static final double autoCarry = 38.5;
-        public static final double trueArmMaxExtension = 200; // TODO: change!
+        public static final double trueArmMaxExtension = 200; // TDO: change!
         public static final double minNonCollidingExtention = 28; // limit for arm so it doesn't crash into the elevator // 32
         public static final double midScoringPos = 25.65; // 28.65
         public static final double highScoringPos = 50.21; // 57.21
@@ -318,10 +318,11 @@ public final class Constants {
         // public static final int pos0 = 20; // done
         // public static final int pos1 = -65138; // dpne; old = -126256; 
         // public static final int pos2 = -107809; // done; old = -226710; 
-        // public static final double topLimit = -236710;
+        public static final double topLimit = -236710; //TDO: check if this is right
 
         public static int elevatorState = 0;
-        public static final int ELEVATOR_GEAR_RATIO = 0;  //TODO: figure out
+        public static final int ELEVATOR_GEAR_RATIO = 0;  //TDO: figure out
+        public static final double ELEVATOR_LENGTH_METERS = 0; //TDO figure out
     }
     
     public static final class IntakeConstants {

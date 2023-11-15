@@ -9,7 +9,7 @@ import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Arm;
 
 public class RetractArm extends CommandBase {
-  //TODO: Write this command
+  //TDO: Write this command
   
   // if the elevator is at the bottom, retract the arm
   // otherwise, do nothing
