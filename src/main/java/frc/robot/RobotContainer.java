@@ -281,7 +281,7 @@ public class RobotContainer {
         // Path", new PathConstraints(Constants.AutoConstants.kMaxSpeedMetersPerSecond,
         // Constants.AutoConstants.kMaxAccelerationMetersPerSecondSquared)), true)));
         // autoChooser.addOption("charge station", chargestation);
-        SmartDashboard.putData(autoChooser);
+        //SmartDashboard.putData(autoChooser);
     }
 
     public void setUpEventMap() {

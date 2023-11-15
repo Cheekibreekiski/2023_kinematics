@@ -149,7 +149,7 @@ public class Wrist extends SubsystemBase {
       motor.set(ControlMode.PercentOutput, 0);
     }
     SmartDashboard.putNumber("wrist absolute", getAbsEncoderPos());
-    SmartDashboard.putNumber("wrist pos", getPosition());
-    SmartDashboard.putNumber("wrist encoder", getEncoderPos());
+    //SmartDashboard.putNumber("wrist pos", getPosition());
+    //SmartDashboard.putNumber("wrist encoder", getEncoderPos());
   }
 }

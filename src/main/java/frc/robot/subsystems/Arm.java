@@ -204,7 +204,7 @@ public class Arm extends SubsystemBase {
             resetEncoder();
         }
         SmartDashboard.putNumber("arm absolute", getAbsEncoderPos());
-        SmartDashboard.putNumber("arm encoder", getEncoderPos());
-        SmartDashboard.putNumber("arm pos", getPos());
+        //SmartDashboard.putNumber("arm encoder", getEncoderPos());
+        //SmartDashboard.putNumber("arm pos", getPos());
     }
 }

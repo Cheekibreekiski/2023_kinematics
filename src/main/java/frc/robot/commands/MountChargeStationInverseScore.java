@@ -59,13 +59,13 @@ public class MountChargeStationInverseScore extends CommandBase {
     
     
       if((pitch < stage1Threshold)){
-        SmartDashboard.putString("ChargeStation", "stage 1: " + pitch);
+        //SmartDashboard.putString("ChargeStation", "stage 1: " + pitch);
         stage = 2;
         xSpeed = 1.25;
     
       }
       else if(stage == 2 && (pitch > stage2Threshold)){
-        SmartDashboard.putString("ChargeStation", "stage 2: " + pitch);
+        //SmartDashboard.putString("ChargeStation", "stage 2: " + pitch);
         finished = true;
       }
       

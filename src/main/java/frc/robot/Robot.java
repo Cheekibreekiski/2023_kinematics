@@ -66,7 +66,7 @@ public class Robot extends TimedRobot {
     }
 
     SmartDashboard.putString("Deployed code:", branch + " " + commit);
-    SmartDashboard.putBoolean("Balanced", Math.abs(m_robotContainer.s_Swerve.getPitch()) < 2.5);
+    //SmartDashboard.putBoolean("Balanced", Math.abs(m_robotContainer.s_Swerve.getPitch()) < 2.5);
 
     m_robotContainer.setUpAutos();
     PathPlannerServer.startServer(5811); // 5811 = port number. adjust this according to your needs
