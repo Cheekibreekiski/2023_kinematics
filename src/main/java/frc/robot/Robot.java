@@ -41,6 +41,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+
     ctreConfigs = new CTREConfigs();
     // Instantiate our RobotContainer. This will perform all our button bindings,
     // and put our
@@ -103,7 +104,7 @@ public class Robot extends TimedRobot {
     // RobotContainer.swervePoseEstimator.getCurrentPose().getY());
     // SmartDashboard.putNumber("poseEstimatorRotation",
     // RobotContainer.swervePoseEstimator.getCurrentPose().getRotation().getDegrees());
-    SmartDashboard.putString("Kinematics", m_robotContainer.kEngine.getCurrentPos().toString());
+    SmartDashboard.putString("Kinematic pose", m_robotContainer.kEngine.getCurrentPos().toString());
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
