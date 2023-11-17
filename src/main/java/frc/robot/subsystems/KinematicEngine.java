@@ -45,6 +45,7 @@ public class KinematicEngine extends SubsystemBase{
         theta2Offset = kp.theta2Offset;
     }
 
+    //calculatory methods, probably shouldnt be used outside of this calss for the most part
     public SuperstructureState calcInverse(Coords desiredState){
         return inv.calculate(desiredState.getX(), desiredState.getY());
     }
@@ -82,11 +83,13 @@ public class KinematicEngine extends SubsystemBase{
         return Inverse.getElevatorPos(kp, getElevatorState());
     }
 
-
+    
+    //actual useful methods
 
     public Coords getCurrentPos(){
         return fwd.calculate(gettheta1(), gettheta2(), getElevatorState());
     }
+
 
     public SuperstructureState getCurrentState(){
         return new SuperstructureState(
@@ -98,6 +101,23 @@ public class KinematicEngine extends SubsystemBase{
         );
     }
     
-    
+    /**from coords */
+    public void setSuperstructureState(Coords desired_coords){
+        SuperstructureState desired_state = inv.calculate(desired_coords);
+        setSuperstructureState(desired_state);
+    }
+
+    /**from superstructure state */
+    public void setSuperstructureState(SuperstructureState desired_state){
+        //TODO: calculate collisions
+
+        //set arm state
+        arm.setPos(desired_state.getTheta1);
+        //set wrist state
+
+        //set elevator state
+        
+    }
+
     
 }

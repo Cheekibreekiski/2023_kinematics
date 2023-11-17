@@ -80,7 +80,13 @@ public class Inverse {
             theta1 = Math.atan(y_elevator_adjusted/x_elevator_adjusted) + Math.atan((kp.l2*Math.sin(theta2))/(kp.l1+(kp.l2*Math.cos(theta2))));
         }
         
-        return new SuperstructureState(elevator_extention, elevator_x, elevator_y, Math.toDegrees(theta1)+90, Math.toDegrees(theta2)-180);
+        return new SuperstructureState(
+            elevator_extention, 
+            elevator_x,
+            elevator_y, 
+            Math.toDegrees(theta1)+90, 
+            Math.toDegrees(theta2)-180
+            );
         
     }
     
