@@ -47,7 +47,7 @@ public class KinematicEngine extends SubsystemBase{
 
     //calculatory methods, probably shouldnt be used outside of this calss for the most part
     public SuperstructureState calcInverse(Coords desiredState){
-        return inv.calculate(desiredState.getX(), desiredState.getY());
+        return inv.calculate(desiredState);
     }
 
     public Coords calcForward(SuperstructureState currentState){
@@ -112,7 +112,7 @@ public class KinematicEngine extends SubsystemBase{
         //TODO: calculate collisions
 
         //set arm state
-        arm.setPos(desired_state.getTheta1);
+        arm.setPos((int) desired_state.getTheta1());
         //set wrist state
 
         //set elevator state
