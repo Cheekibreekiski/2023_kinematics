@@ -24,10 +24,10 @@ public class Inverse {
 
 
 
-    public SuperstructureState calculate(double x_d, double y_d){        
+    public SuperstructureState calculate(Coords desired_Coords){        
 
-        x_desired = x_d;
-        y_desired = y_d;
+        x_desired = desired_Coords.getX();
+        y_desired = desired_Coords.getY();
         
         //calc elevator pos
 
